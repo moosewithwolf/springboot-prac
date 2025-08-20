@@ -2,6 +2,7 @@ package me.shinseong.moose.controller;
 
 
 import lombok.RequiredArgsConstructor;
+import me.shinseong.moose.dto.MemberDTO;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -42,6 +43,11 @@ public class HelloController {
             result.append(params.get(key) + ": " + params.get(key) + "\n");
         }
         return params.toString();
+    }
+
+    @GetMapping(value = "/request3")
+    public String getRequest3(@ModelAttribute MemberDTO member){
+        return member.toString(); // 오버라이드된 toString() 호출
     }
 
 }
